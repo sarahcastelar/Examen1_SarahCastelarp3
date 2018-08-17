@@ -53,8 +53,7 @@ void Metodos::printMatrix(int size, char** matrix){
 
 char** Metodos::muevePiezaJ1(int x, int y, int x2, int y2, char** matrix){	
 	bool movimientoValido = false;
-
-   if (x2 != x && y2 != y){//ver si esto funciona pq im not sureeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee. 	
+	
 	if  (matrix[x][y] == '+'){
 	    if (matrix[x2][y2] = ' '){
 		if( (x2 >= 0 && x2 <=10) && (y2 >= 0 && y2 <= 10) ){ //que esten dentro del rango de la matriz y que no se quiera mover al mismo lugar
@@ -75,12 +74,10 @@ char** Metodos::muevePiezaJ1(int x, int y, int x2, int y2, char** matrix){
 			cout<<"Sus coordenadas se salen del limite. "<<endl;
 			
 	    }else 
-		    cout<<"No puede moverse encima de otra pieza."<<endl;
+		    cout<<"No puede moverse encima `de otra pieza."<<endl;
 	    
 	}else
-		cout<<"No puede mover piezas de su contricante. "<<endl;
-    }else
-    	cout<<"No se puede mover a donde ya esta. "<<endl;	    
+		cout<<"No puede mover piezas de su contricante. "<<endl;	    
 
 	if (movimientoValido){
 		printMatrix(11,matrix);
@@ -94,8 +91,7 @@ char** Metodos::muevePiezaJ1(int x, int y, int x2, int y2, char** matrix){
 
 char** Metodos::muevePiezaJ2(int x, int y, int x2, int y2, char** matrix){	
 	bool movimientoValido = false;
-
-   if (x2 != x && y2 != y){//ver si esto funciona pq im not sureeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee. 	
+	
 	if  (matrix[x][y] == '#'){
 	    if (matrix[x2][y2] = ' '){
 		if( (x2 >= 0 && x2 <=10) && (y2 >= 0 && y2 <= 10) ){ //que esten dentro del rango de la matriz y que no se quiera mover al mismo lugar
@@ -120,8 +116,7 @@ char** Metodos::muevePiezaJ2(int x, int y, int x2, int y2, char** matrix){
 	    
 	}else
 		cout<<"No puede mover piezas de su contricante. "<<endl;
-    }else
-    	cout<<"No se puede mover a donde ya esta. "<<endl;	    
+    	    
 
 	if (movimientoValido){
 		printMatrix(11,matrix);

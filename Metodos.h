@@ -14,6 +14,10 @@ class Metodos{
 
 		bool isItGameOver(char**);
 		bool isItGameOver2(char**);
+
+		void comerJ1(int, int, int, int, char**);
+		void comerJ2(int, int, int, int, char**);
+
 		Metodos();//default
 
 
