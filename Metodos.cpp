@@ -54,7 +54,7 @@ void Metodos::printMatrix(int size, char** matrix){
 char** Metodos::muevePiezaJ1(int x, int y, int x2, int y2, char** matrix){	
 	bool movimientoValido = false;
 
-   if (x2 != x && y2 != y){//ver si esto funciona pq im not sureeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee. 	
+    	
 	if  (matrix[x][y] == '+'){
 	    if (matrix[x2][y2] = ' '){
 		if( (x2 >= 0 && x2 <=10) && (y2 >= 0 && y2 <= 10) ){ //que esten dentro del rango de la matriz y que no se quiera mover al mismo lugar
@@ -66,7 +66,8 @@ char** Metodos::muevePiezaJ1(int x, int y, int x2, int y2, char** matrix){
 
 			} else if ( (((x2 == (x-2)) || (x2 == (x+2))) || (x2==x)) && (((y2 == (y-2)) || (y2 == (y+2))) || (y2==y))) { //cuando se mueve y no se clona. 
 				matrix[x2][y2] = '+';
-				matrix[x][y] = ' '				movimientoValido=true;
+				matrix[x][y] = ' ';
+				movimientoValido=true;
 			}
 
 
@@ -78,11 +79,11 @@ char** Metodos::muevePiezaJ1(int x, int y, int x2, int y2, char** matrix){
 	    
 	}else
 		cout<<"No puede mover piezas de su contricante. "<<endl;
-    }else
-    	cout<<"No se puede mover a donde ya esta. "<<endl;	    
+    	    
 
 	if (movimientoValido){
-		printMatrix(11,matrix);
+	//	printMatrix(11,matrix);
+		comerJ1(x,y,x2,y2,matrix);
 	}else
 		cout<<"Movimiento invalido. Ingrese coordenadas otra vez."<<endl;
 
@@ -93,8 +94,7 @@ char** Metodos::muevePiezaJ1(int x, int y, int x2, int y2, char** matrix){
 
 char** Metodos::muevePiezaJ2(int x, int y, int x2, int y2, char** matrix){	
 	bool movimientoValido = false;
-
-   if (x2 != x && y2 != y){//ver si esto funciona pq im not sureeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee. 	
+	
 	if  (matrix[x][y] == '#'){
 	    if (matrix[x2][y2] = ' '){
 		if( (x2 >= 0 && x2 <=10) && (y2 >= 0 && y2 <= 10) ){ //que esten dentro del rango de la matriz y que no se quiera mover al mismo lugar
@@ -119,11 +119,11 @@ char** Metodos::muevePiezaJ2(int x, int y, int x2, int y2, char** matrix){
 	    
 	}else
 		cout<<"No puede mover piezas de su contricante. "<<endl;
-    }else
-    	cout<<"No se puede mover a donde ya esta. "<<endl;	    
+    	    
 
 	if (movimientoValido){
-		printMatrix(11,matrix);
+	//	printMatrix(11,matrix);
+		comerJ2(x,y,x2,y2,matrix);
 	}else
 		cout<<"Movimiento invalido. Ingrese coordenadas otra vez."<<endl;
 
@@ -167,6 +167,73 @@ bool Metodos::isItGameOver2(char** matrix){
 		perdio = true;
 
 	return perdio;
+
+}
+
+void Metodos::comerJ1(int x, int y, int x2, int y2, char** mat){
+
+	if ( (x>=1 && x<=9) && (y>=1 && y<=9) ){
+		if (mat[x-1][y-1]=='#')
+			mat[x-1][y-1] = '+';
+
+		if (mat[x-1][y] == '#')
+			mat[x-1][y] = '+';
+
+		if (mat[x-1][y+1] == '#')
+			mat[x-1][y+1] = '+';
+
+		if (mat[x][y-1]=='#')
+			mat[x][y-1]='+';
+
+		if (mat[x+1][y-1]=='#')
+			mat[x+1][y-1]='+';
+		
+		if(mat[x][y+1] == '#')
+			mat[x][y+1]='+';
+
+		if(mat[x+1][y]=='#')
+			mat[x+1][y]='+';
+
+		if(mat[x+1][y+1]=='#')
+			mat[x+1][y+1]='+';
+
+
+	}
+	printMatrix(11,mat);
+
+}
+
+
+void Metodos::comerJ2(int x, int y, int x2, int y2, char** mat){
+
+	if ( (x>=1 && x<=9) && (y>=1 && y<=9) ){
+		if (mat[x-1][y-1]=='+')
+			mat[x-1][y-1] = '#';
+
+		if (mat[x-1][y] == '+')
+			mat[x-1][y] = '#';
+
+		if (mat[x-1][y+1] == '+')
+			mat[x-1][y+1] = '#';
+
+		if (mat[x][y-1]=='+')
+			mat[x][y-1]='#';
+
+		if (mat[x+1][y-1]=='+')
+			mat[x+1][y-1]='#';
+
+		if(mat[x][y+1] == '+')
+			mat[x][y+1]='#';
+
+		if(mat[x+1][y]=='+')
+			mat[x+1][y]='#';
+
+		if(mat[x+1][y+1]=='+')
+			mat[x+1][y+1]='#';
+
+
+	}
+	printMatrix(11,mat);
 
 }
 
