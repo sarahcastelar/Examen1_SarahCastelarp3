@@ -38,8 +38,7 @@ void ejercicio1(){
 
 	//empieza el juego. se valida si donde decidio moverse es valido.
 	matrix = play->muevePiezaJ1(x,y,x2,y2,matrix);
-	//despues de mover, ver si se puede comer piezas contricantes
-//	play->comerJ1(x,y,x2,y2,matrix);	
+	//despues de mover, ver si se puede comer piezas contricantes	
 	
 	cout<<"Mueve jugador 2 (#)"<<endl
 	<<"Ingrese coordenada X de la pieza a mover: "<<endl;
@@ -52,7 +51,6 @@ void ejercicio1(){
 	cin>>y2;
 
 	matrix = play->muevePiezaJ2(x,y,x2,y2,matrix);
-//	play->comerJ2(x,y,x2,y2,matrix);
 
 
 	gameOver1 = play->isItGameOver(matrix);
@@ -62,6 +60,10 @@ void ejercicio1(){
 
 
    }//while game over
+   if (gameOver1)
+	   cout<<"Gano jugador 1."<<endl;
+   else 
+	   cout<<"Gano jugador 2."<<endl;
 
 
 	delete play;
